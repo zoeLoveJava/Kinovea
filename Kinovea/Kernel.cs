@@ -410,14 +410,13 @@ namespace Kinovea.Root
             mnuWebsite.Click += (s,e) => Process.Start("https://www.kinovea.org");
             mnuAbout.Click += new EventHandler(mnuAbout_OnClick);
 
+            // 帮助菜单
             mnuHelp.DropDownItems.AddRange(new ToolStripItem[] { 
                 mnuHelpContents,
-                mnuTranslate2,
+                // mnuTranslate2,
                 new ToolStripSeparator(), 
-                mnuApplicationFolder, 
-                new ToolStripSeparator(),
-                mnuWebsite,
-                mnuAbout });
+                mnuApplicationFolder    
+            });
             #endregion
 
             // Top level merge.
