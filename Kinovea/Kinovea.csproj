@@ -389,6 +389,10 @@
       <Project>{0A577C03-D217-4540-AAB4-D167A85E32C0}</Project>
       <Name>Kinovea.Updater</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Kinovea.Authentication\Kinovea.Authentication.csproj">
+      <Project>{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}</Project>
+      <Name>Kinovea.Authentication</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kinovea.Video.Bitmap\Kinovea.Video.Bitmap.csproj">
       <Project>{c0148b9e-a511-4631-a075-ae483d4153a8}</Project>
       <Name>Kinovea.Video.Bitmap</Name>

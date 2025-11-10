@@ -37,6 +37,7 @@ using Kinovea.Services;
 using Kinovea.Updater;
 using Kinovea.Video;
 using Kinovea.Camera;
+using Kinovea.Authentication;
 
 namespace Kinovea.Root
 {
@@ -54,6 +55,7 @@ namespace Kinovea.Root
         private FileBrowserKernel fileBrowser;
         private UpdaterKernel updater;
         private ScreenManagerKernel screenManager;
+        private AuthenticationKernel authentication;
         private Stopwatch stopwatch = new Stopwatch();
         
         #region Menus
@@ -191,6 +193,7 @@ namespace Kinovea.Root
             fileBrowser = new FileBrowserKernel();
             updater = new UpdaterKernel();
             screenManager = new ScreenManagerKernel();
+            authentication = new AuthenticationKernel();
             log.DebugFormat("Modules tree built in {0} ms.", stopwatch.ElapsedMilliseconds);
         }
         public void ExtendMenu(ToolStrip menu)
@@ -221,6 +224,7 @@ namespace Kinovea.Root
             fileBrowser.ExtendUI();
             updater.ExtendUI();
             screenManager.ExtendUI();
+            authentication.ExtendUI();
 
             mainWindow.PlugUI(fileBrowser.UI, screenManager.UI);
             mainWindow.SupervisorControl.buttonCloseExplo.BringToFront();
@@ -237,6 +241,7 @@ namespace Kinovea.Root
             fileBrowser.RefreshUICulture();
             updater.RefreshUICulture();
             screenManager.RefreshUICulture();
+            authentication.RefreshUICulture();
             
             log.Debug("RefreshUICulture - Whole tree culture reloaded.");
         }
@@ -247,6 +252,7 @@ namespace Kinovea.Root
             fileBrowser.PreferencesUpdated();
             updater.PreferencesUpdated();
             screenManager.PreferencesUpdated();
+            authentication.PreferencesUpdated();
         }
         public bool CloseSubModules()
         {
@@ -435,6 +441,7 @@ namespace Kinovea.Root
             fileBrowser.ExtendMenu(menu);
             updater.ExtendMenu(menu);
             screenManager.ExtendMenu(menu);
+            authentication.ExtendMenu(menu);
         }
         private void GetModuleToolBar(ToolStrip toolbar)
         {

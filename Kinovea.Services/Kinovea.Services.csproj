@@ -301,6 +301,7 @@
     <Compile Include="Filesystem\FilesystemHelper.cs" />
     <Compile Include="Preferences\IPreferenceSerializer.cs" />
     <Compile Include="Preferences\KeyboardPreferences.cs" />
+    <Compile Include="Preferences\AuthenticationPreferences.cs" />
     <Compile Include="Commands\Commands.cs" />
     <Compile Include="WinForms\FormsHelper.cs" />
     <Compile Include="Commands\HotkeyCommand.cs" />

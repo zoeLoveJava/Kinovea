@@ -87,11 +87,23 @@ namespace Kinovea.Services
                 return instance.keyboardPreferences;
             }
         }
+
+        public static AuthenticationPreferences AuthenticationPreferences
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new PreferencesManager();
+
+                return instance.authenticationPreferences;
+            }
+        }
         private GeneralPreferences generalPreferences = new GeneralPreferences();
         private FileExplorerPreferences fileExplorerPreferences = new FileExplorerPreferences();
         private PlayerPreferences playerPreferences = new PlayerPreferences();
         private CapturePreferences capturePreferences = new CapturePreferences();
         private KeyboardPreferences keyboardPreferences = new KeyboardPreferences();
+        private AuthenticationPreferences authenticationPreferences = new AuthenticationPreferences();
 
         private static PreferencesManager instance = null;
         private static object locker = new object();
@@ -181,6 +193,7 @@ namespace Kinovea.Services
             WritePreference(writer, playerPreferences);
             WritePreference(writer, capturePreferences);
             WritePreference(writer, keyboardPreferences);
+            WritePreference(writer, authenticationPreferences);
         }
 
         private void WritePreference(XmlWriter writer, IPreferenceSerializer serializer)
@@ -266,6 +279,9 @@ namespace Kinovea.Services
                         break;
                     case "Keyboard":
                         keyboardPreferences.ReadXML(reader);
+                        break;
+                    case "Authentication":
+                        authenticationPreferences.ReadXML(reader);
                         break;
                     default:
                         reader.ReadOuterXml();
